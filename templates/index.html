@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MessFlow | Optimised Mess Management</title>
+
+  <!-- Chart.js for Admin/Student analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- External Styles -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="grid-bg"></div>
+
+  <div id="landing" class="page active">
+    <nav>
+      <div class="nav-logo" onclick="showPage('landing')">Mess<span>Flow</span><span class="dot">.</span></div>
+      <ul class="nav-links">
+        <li><a href="#problems">Problems</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#access">Access</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" onclick="goToLogin('student')">Student Portal</button>
+        <button class="btn btn-amber" onclick="goToLogin('admin')"><i class="fa-solid fa-shield-halved"></i>
+          Admin</button>
+      </div>
+    </nav>
+
+    <div class="hero container">
+      <div class="hero-eyebrow">
+        <span class="chip chip-teal"><i class="fa-solid fa-circle" style="font-size:0.5rem"></i> AI-Powered Mess
+          Management</span>
+      </div>
+      <h1 class="fade-up">Eliminate Waste.<br><span class="line2">Feed Smarter.</span></h1>
+      <p class="fade-up fade-up-1">Solving inaccurate demand prediction, unknown food preferences, and inefficient
+        surplus routing — all in one intelligent platform.</p>
+      <div class="hero-cta fade-up fade-up-2">
+        <button class="btn btn-teal btn-lg" onclick="goToLogin('student')"><i class="fa-solid fa-user-graduate"></i>
+          Student Portal</button>
+        <button class="btn btn-ghost btn-lg" onclick="goToLogin('admin')"><i class="fa-solid fa-chart-bar"></i> Admin
+          Dashboard</button>
+      </div>
+      <div class="metrics-strip fade-up fade-up-3">
+        <div class="metric-card">
+          <div class="val" style="color:var(--teal)">96<span style="font-size:1.2rem">%</span></div>
+          <div class="lbl">Demand prediction accuracy</div>
+        </div>
+        <div class="metric-card">
+          <div class="val" style="color:var(--amber)">1,500<span style="font-size:1rem">kg</span></div>
+          <div class="lbl">Food saved this month</div>
+        </div>
+        <div class="metric-card">
+          <div class="val" style="color:var(--rose)">40<span style="font-size:1rem">%</span></div>
+          <div class="lbl">Waste reduction vs. baseline</div>
+        </div>
+        <div class="metric-card">
+          <div class="val" style="color:var(--sky)">12<span style="font-size:1rem"> NGOs</span></div>
+          <div class="lbl">Surplus routed automatically</div>
+        </div>
+      </div>
+    </div>
+
+    <section id="problems">
+      <div class="container">
+        <div class="section-header">
+          <div class="chip chip-rose" style="margin-bottom:1rem"><i class="fa-solid fa-triangle-exclamation"></i> Core
+            Problems</div>
+          <h2>Three Friction Points We Fix</h2>
+          <p>Institutional mess management has long suffered from the same fundamental challenges.</p>
+        </div>
+        <div class="problems-grid">
+          <div class="problem-card">
+            <div class="prob-icon teal"><i class="fa-solid fa-chart-pie"></i></div>
+            <h3>Inaccurate Quantity Prediction</h3>
+            <p>Kitchens cook blind — they don't know how many students will show up or what they'll want to eat, leading
+              to massive overproduction or shortages.</p>
+            <div class="solution-tag"><i class="fa-solid fa-check-circle"></i> Solved by pre-meal RSVP + AI forecasting
+            </div>
+          </div>
+          <div class="problem-card">
+            <div class="prob-icon amber"><i class="fa-solid fa-eye-slash"></i></div>
+            <h3>No Insight Into Food Preferences</h3>
+            <p>Traditional feedback is biased and sparse. Kitchens have no reliable way to know which items students
+              truly dislike until it's already wasted.</p>
+            <div class="solution-tag"><i class="fa-solid fa-check-circle"></i> Solved by AI plate scanning analytics
+            </div>
+          </div>
+          <div class="problem-card">
+            <div class="prob-icon rose"><i class="fa-solid fa-trash-can"></i></div>
+            <h3>Inefficient Surplus Handling</h3>
+            <p>Surplus food is often discarded because there's no fast, reliable system to route it to those who need it
+              before it spoils.</p>
+            <div class="solution-tag"><i class="fa-solid fa-check-circle"></i> Solved by automated NGO routing alerts
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how"
+      style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+      <div class="container">
+        <div class="section-header">
+          <div class="chip chip-sky" style="margin-bottom:1rem"><i class="fa-solid fa-gears"></i> How It Works</div>
+          <h2>Four Steps to Zero Waste</h2>
+          <p>A closed-loop system where every meal teaches the system to do better next time.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <h4>Students RSVP Meals</h4>
+            <p>Students select their preferred dish and portion size before each meal. No more guessing for the kitchen.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <h4>AI Forecasts Demand</h4>
+            <p>The system cross-references RSVPs with historical patterns to generate accurate cooking quantities per
+              meal.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <h4>Plate Scanners Track Waste</h4>
+            <p>AI cameras at dumping stations scan every plate, logging exactly what percentage of each item is being
+              wasted.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <h4>Menu Updates + Surplus Routed</h4>
+            <p>Every Monday, menus are revised based on waste data. Any unavoidable surplus is auto-dispatched to
+              registered NGOs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="brand">Mess<span>Flow</span></div>
+      <p>Optimised Mess Management System &copy; 2026</p>
+      <div style="display:flex;gap:1rem;color:var(--muted);font-size:0.8rem;">
+        <span>Design Thinking Project</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- =================== LOGIN PAGE (NEW) =================== -->
+  <div id="login" class="page">
+    <nav>
+      <div class="nav-logo" onclick="showPage('landing')">Mess<span>Flow</span><span class="dot">.</span></div>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" onclick="showPage('landing')"><i class="fa-solid fa-arrow-left"></i> Back to
+          Home</button>
+      </div>
+    </nav>
+
+    <div class="hero container"
+      style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 5rem;">
+      <div class="card card-glow"
+        style="width: 100%; max-width: 420px; padding: 2.5rem; animation: fadeUp 0.4s ease forwards;">
+        <h2 id="loginTitle"
+          style="font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; text-align: center;">
+          Login</h2>
+        <p id="loginSubtitle" style="color: var(--muted); text-align: center; margin-bottom: 2rem; font-size: 0.9rem;">
+          Sign in to access your portal.</p>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label
+            style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-bottom: 0.5rem;">Username
+            / ID</label>
+          <input type="text" id="loginUser" class="input-field" placeholder="Enter your username">
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+          <label
+            style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-bottom: 0.5rem;">Password</label>
+          <input type="password" id="loginPass" class="input-field" placeholder="Enter your password"
+            onkeypress="handleLoginKey(event)">
+        </div>
+
+        <button class="btn btn-teal btn-full btn-lg" id="loginSubmitBtn" onclick="processLogin()">Sign In</button>
+
+        <div id="loginError"
+          style="background: rgba(244,63,94,0.1); border: 1px solid rgba(244,63,94,0.3); color: var(--rose); font-size: 0.85rem; text-align: center; padding: 0.75rem; border-radius: 8px; margin-top: 1.25rem; display: none;">
+          Invalid credentials. Please try again.
+        </div>
+
+        <div style="text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--muted);">
+          <p>Demo credentials auto-filled.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="student" class="page">
+    <nav style="z-index:200;">
+      <div class="nav-logo" onclick="logout()">Mess<span>Flow</span><span class="dot">.</span></div>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <div class="avatar" id="studentAvatar">D</div>
+        <span style="font-size:0.9rem;font-weight:600;" id="studentName">Destiny</span>
+        <span class="chip chip-teal" style="font-size:0.72rem;">Student</span>
+      </div>
+      <button class="btn btn-ghost" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </nav>
+    <div style="padding:5.5rem 2rem 0;max-width:1140px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem;">
+        <div id="snav-meals" class="student-nav-btn active-snav" onclick="studentTab('meals','meals')">
+          <div class="snav-icon" style="background:var(--teal-dim);color:var(--teal)"><i
+              class="fa-solid fa-bell-concierge"></i></div>
+          <div class="snav-label">Meal Selection</div>
+          <div class="snav-desc">RSVP your weekly meals</div>
+        </div>
+        <div id="snav-stats" class="student-nav-btn" onclick="studentTab('stats','stats')">
+          <div class="snav-icon" style="background:var(--amber-dim);color:var(--amber)"><i
+              class="fa-solid fa-chart-line"></i></div>
+          <div class="snav-label">My Waste Stats</div>
+          <div class="snav-desc">Plate scanner insights</div>
+        </div>
+        <div id="snav-history" class="student-nav-btn" onclick="studentTab('history','history')">
+          <div class="snav-icon" style="background:var(--sky-dim);color:var(--sky)"><i
+              class="fa-solid fa-clock-rotate-left"></i></div>
+          <div class="snav-label">Order History</div>
+          <div class="snav-desc">Past meals &amp; completion</div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1140px;margin:0 auto;padding:0 2rem 4rem;">
+      <div class="portal-main" style="padding:0;">
+        <div id="tab-meals" class="tab-content active">
+          <div class="page-title">Weekly Meal Selection</div>
+          <div class="page-sub">RSVP your meals and portions — menus update every Monday based on waste analytics.</div>
+          <div id="mealConfirmBanner"
+            style="display:none;background:rgba(45,212,191,0.08);border:1px solid rgba(45,212,191,0.25);border-radius:12px;padding:1rem 1.5rem;margin-bottom:1.5rem;display:none;align-items:center;gap:0.75rem;">
+            <i class="fa-solid fa-circle-check" style="color:var(--teal);font-size:1.1rem;"></i>
+            <span style="font-size:0.9rem;">Your meal selections have been confirmed! The kitchen has been
+              notified.</span>
+          </div>
+          <div id="daySelector"
+            style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 1rem; margin-bottom: 1rem;">
+            <button class="btn btn-ghost active-day" style="border: 1px solid var(--teal); color: var(--teal);"
+              onclick="selectDay('Mon', this)">Mon</button>
+            <button class="btn btn-ghost" onclick="selectDay('Tue', this)">Tue</button>
+            <button class="btn btn-ghost" onclick="selectDay('Wed', this)">Wed</button>
+            <button class="btn btn-ghost" onclick="selectDay('Thu', this)">Thu</button>
+            <button class="btn btn-ghost" onclick="selectDay('Fri', this)">Fri</button>
+            <button class="btn btn-ghost" onclick="selectDay('Sat', this)">Sat</button>
+            <button class="btn btn-ghost" onclick="selectDay('Sun', this)">Sun</button>
+          </div>
+
+          <div class="meal-grid" id="mealGrid" style="margin-bottom: 2rem;">
+            <div class="card" style="padding: 1.5rem; border: 1px solid var(--teal);">
+              <h4 style="margin-bottom: 0.5rem;">Standard Veg Thali</h4>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Rice, Dal, Mixed Veg Curry,
+                Chapati.</p>
+              <button class="btn btn-teal btn-full"
+                onclick="document.getElementById('mealConfirmBanner').style.display='flex'">Select for Monday</button>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+              <h4 style="margin-bottom: 0.5rem;">Light Meal</h4>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">2 Chapatis, Dal, Salad.</p>
+              <button class="btn btn-ghost btn-full">Select for Monday</button>
+            </div>
+          </div>
+          <!-- Skip Meal info banner (Task 5) -->
+          <div
+            style="background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.3);border-radius:12px;padding:0.9rem 1.25rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;">
+            <i class="fa-solid fa-circle-info" style="color:var(--sky);font-size:1.1rem;"></i>
+            <span style="font-size:0.875rem;color:var(--text);"><strong>Note:</strong> If no meal is selected for a
+              slot, it will be automatically marked as a <strong>Skipped Meal</strong>.</span>
+          </div>
+          <button class="btn btn-teal btn-lg" id="confirmMealsBtn" onclick="confirmMeals()"><i
+              class="fa-solid fa-check"></i> Confirm All Selections</button>
+        </div>
+
+        <div id="tab-stats" class="tab-content">
+          <div class="page-title">My Waste Report</div>
+          <div class="page-sub">Generated from smart plate-scanner data at the dumping station.</div>
+          <div class="stats-row">
+            <div class="stat-tile">
+              <div class="val" style="color:var(--teal)">82%</div>
+              <div class="lbl">Avg. plate completion</div>
+            </div>
+            <div class="stat-tile">
+              <div class="val" style="color:var(--amber)">15%</div>
+              <div class="lbl">Rice waste rate</div>
+            </div>
+            <div class="stat-tile">
+              <div class="val" style="color:var(--rose)">3%</div>
+              <div class="lbl">Protein waste rate</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+            <div
+              style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--teal); border-radius: 12px; padding: 1.25rem; display: flex; align-items: center; gap: 1rem;">
+              <div style="font-size: 2rem; color: var(--teal);"><i class="fa-solid fa-heart"></i></div>
+              <div>
+                <h4 style="color: var(--teal); margin: 0;">Most Liked Item</h4>
+                <p style="margin: 0; font-size: 0.9rem; font-weight: 600;">Paneer Butter Masala (0% Waste)</p>
+              </div>
+            </div>
+            <div
+              style="background: rgba(244, 63, 94, 0.1); border: 1px solid var(--rose); border-radius: 12px; padding: 1.25rem; display: flex; align-items: center; gap: 1rem;">
+              <div style="font-size: 2rem; color: var(--rose);"><i class="fa-solid fa-thumbs-down"></i></div>
+              <div>
+                <h4 style="color: var(--rose); margin: 0;">Most Disliked Item</h4>
+                <p style="margin: 0; font-size: 0.9rem; font-weight: 600;">Boiled Cabbage (45% Waste)</p>
+              </div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+            <div class="chart-wrap">
+              <h3>This Week — Waste Breakdown</h3>
+              <div style="height:240px;"><canvas id="studentDonut"></canvas></div>
+            </div>
+            <div class="chart-wrap">
+              <h3>Daily Waste Trend (Last 7 Days)</h3>
+              <div style="height:240px;"><canvas id="studentLine"></canvas></div>
+            </div>
+          </div>
+          <div
+            style="background:var(--teal-dim);border:1px solid rgba(45,212,191,0.2);border-radius:12px;padding:1.25rem;margin-top:1.5rem;">
+            <p style="font-size:0.875rem;"><i class="fa-solid fa-lightbulb" style="color:var(--teal)"></i>
+              <strong>Tip:</strong> You consistently waste ~15% of your rice. Try switching to <strong>Half
+                Portion</strong> for rice — it'll reduce waste and the kitchen can allocate the saved portion to others.
+            </p>
+          </div>
+        </div>
+
+        <div id="tab-history" class="tab-content">
+          <div class="page-title">Order History</div>
+          <div class="page-sub">Your past meal selections and completion rates.</div>
+          <div class="orders-list" id="ordersList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="admin" class="page">
+    <nav style="z-index:200;">
+      <div class="nav-logo" onclick="logout()">Mess<span>Flow</span><span class="dot">.</span></div>
+      <div class="chip chip-amber"><i class="fa-solid fa-shield-halved" style="font-size:0.7rem"></i> Admin Dashboard
+      </div>
+      <button class="btn btn-ghost" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </nav>
+    <div style="padding:5.5rem 2rem 0;max-width:1140px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1.25rem;margin-bottom:2rem;">
+        <div id="anav-overview" class="student-nav-btn active-snav" onclick="adminNavClick('overview')">
+          <div class="snav-icon" style="background:var(--teal-dim);color:var(--teal)"><i
+              class="fa-solid fa-chart-pie"></i></div>
+          <div class="snav-label">Overview</div>
+          <div class="snav-desc">Live KPIs &amp; charts</div>
+        </div>
+        <div id="anav-waste" class="student-nav-btn" onclick="adminNavClick('waste')">
+          <div class="snav-icon" style="background:var(--rose-dim);color:var(--rose)"><i
+              class="fa-solid fa-trash-can-arrow-up"></i></div>
+          <div class="snav-label">Waste Analytics</div>
+          <div class="snav-desc">Food waste breakdown</div>
+        </div>
+        <div id="anav-menu" class="student-nav-btn" onclick="adminNavClick('menu')">
+          <div class="snav-icon" style="background:var(--amber-dim);color:var(--amber)"><i
+              class="fa-solid fa-utensils"></i></div>
+          <div class="snav-label">Menu Revision</div>
+          <div class="snav-desc">AI-driven updates</div>
+        </div>
+        <div id="anav-surplus" class="student-nav-btn" onclick="adminNavClick('surplus')">
+          <div class="snav-icon" style="background:var(--sky-dim);color:var(--sky)"><i
+              class="fa-solid fa-truck-fast"></i></div>
+          <div class="snav-label">Surplus Routing</div>
+          <div class="snav-desc">NGO dispatch tracker</div>
+        </div>
+        <div id="anav-kitchen" class="student-nav-btn" onclick="adminNavClick('kitchen')">
+          <div class="snav-icon" style="background:var(--amber-dim);color:var(--amber)"><i
+              class="fa-solid fa-fire-burner"></i></div>
+          <div class="snav-label">Kitchen Prep</div>
+          <div class="snav-desc">Live orders &amp; aggregation</div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1140px;margin:0 auto;padding:0 2rem 4rem;">
+      <div class="admin-main" style="padding:0;">
+        <div id="atab-overview" class="tab-content active">
+          <div class="page-title">Dashboard Overview</div>
+          <div class="page-sub">Real-time insights from plate scanners and RSVP data.</div>
+          <!-- Task 2: Live AI Detection Log (replaces KPIs + AI alert + log button) -->
+          <div class="chart-card" style="margin-bottom: 2rem;">
+            <h3 style="display:flex;justify-content:space-between;align-items:center;">
+              <span><i class="fa-solid fa-robot" style="color:var(--teal);margin-right:0.5rem;"></i>Live AI Detection
+                Log <span id="logLiveChip" class="chip chip-rose"
+                  style="font-size:0.72rem; animation: pulse 1.5s infinite;">● Live</span></span>
+              <button onclick="downloadLogReport()" title="Download log as .txt"
+                style="background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--muted);padding:0.35rem 0.65rem;cursor:pointer;font-size:0.85rem;transition:all 0.2s;"
+                onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal)'"
+                onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'"><i
+                  class="fa-solid fa-download"></i></button>
+            </h3>
+            <div id="liveDetectionLog"
+              style="overflow-y:auto;max-height:300px;margin-top:1rem;display:flex;flex-direction:column;gap:0.5rem;font-family:monospace;font-size:0.82rem;">
+              <div style="color:var(--muted);text-align:center;padding:1rem;">Waiting for camera feed...</div>
+            </div>
+          </div>
+
+          <!-- Video Feed Container -->
+          <div class="chart-card" style="margin-bottom: 2rem;">
+            <h3>Live Dumping Station Feed <span class="chip chip-rose"
+                style="font-size:0.72rem; animation: pulse 1.5s infinite;">● Live</span></h3>
+            <div class="video-container"
+              style="border-radius: 8px; overflow: hidden; background: #000; position: relative; margin-top: 1rem; border: 1px solid var(--border);">
+              <img src="http://localhost:5000/video_feed" alt="Live Camera Feed"
+                style="width: 100%; max-height: 480px; object-fit: cover; opacity: 0.95; display: block;"
+                onerror="this.src=''; this.alt='Camera Offline'; this.style.padding='2rem'; this.style.color='#f43f5e';">
+              <div
+                style="position: absolute; top: 12px; left: 12px; font-family: monospace; color: #10b981; font-size: 0.85rem; background: rgba(0,0,0,0.7); padding: 4px 10px; border-radius: 4px; border: 1px solid #10b981;">
+                CAM-01: REC VIEW</div>
+            </div>
+          </div>
+          <div class="charts-row">
+            <div class="chart-card">
+              <h3>Waste by Category — Last 7 Days (kg) <span class="chip chip-teal"
+                  style="font-size:0.72rem">Live</span></h3>
+              <div style="height:260px;"><canvas id="adminBarChart"></canvas></div>
+            </div>
+            <div class="chart-card">
+              <h3>Tonight's Demand Forecast</h3>
+              <div style="height:260px;"><canvas id="demandDonut"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="atab-waste" class="tab-content">
+          <div class="page-title">Waste Analytics</div>
+          <div class="page-sub">Detailed breakdown from AI plate scanners at all dumping stations.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+            <div class="chart-card">
+              <h3>Waste % by Food Item</h3>
+              <div style="height:260px;"><canvas id="wasteHBar"></canvas></div>
+            </div>
+            <div class="chart-card">
+              <h3>Weekly Waste Trend</h3>
+              <div style="height:260px;"><canvas id="wasteTrend"></canvas></div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>Detailed Item Waste Table <span class="chip chip-rose"
+                style="font-size:0.72rem;margin-left:0.5rem;">High Risk Items Flagged</span></h3>
+            <table class="waste-table">
+              <thead>
+                <tr>
+                  <th>Food Item</th>
+                  <th>Category</th>
+                  <th>Avg. Waste %</th>
+                  <th>Visual</th>
+                  <th>AI Action</th>
+                </tr>
+              </thead>
+              <tbody id="wasteTableBody">
+                <tr>
+                  <td>White Rice</td>
+                  <td>Staple</td>
+                  <td style="color:var(--amber);font-weight:bold;">18%</td>
+                  <td>🟡</td>
+                  <td>Monitor</td>
+                </tr>
+                <tr>
+                  <td>Toor Dal</td>
+                  <td>Protein</td>
+                  <td style="color:var(--teal);font-weight:bold;">4%</td>
+                  <td>🟢</td>
+                  <td>Optimal</td>
+                </tr>
+                <tr>
+                  <td>Chapati</td>
+                  <td>Staple</td>
+                  <td style="color:var(--teal);font-weight:bold;">8%</td>
+                  <td>🟢</td>
+                  <td>Optimal</td>
+                </tr>
+                <tr>
+                  <td>Aloo Gobi</td>
+                  <td>Vegetable</td>
+                  <td style="color:var(--rose);font-weight:bold;">32%</td>
+                  <td>🔴</td>
+                  <td>Reduce Portion</td>
+                </tr>
+                <tr>
+                  <td>Curd</td>
+                  <td>Dairy</td>
+                  <td style="color:var(--teal);font-weight:bold;">2%</td>
+                  <td>🟢</td>
+                  <td>Optimal</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Task 3: Highest Wasted Item by Day -->
+          <div class="chart-card" style="margin-top:1.5rem;">
+            <h3>Highest Wasted Item by Day <span class="chip chip-rose"
+                style="font-size:0.72rem;margin-left:0.5rem;">Peak Waste Alert</span></h3>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem;"
+              id="dailyPeakWaste">
+              <!-- Populated by JS buildDailyPeakWaste() -->
+            </div>
+          </div>
+        </div>
+
+        <div id="atab-menu" class="tab-content">
+          <div class="page-title">Menu Revision</div>
+          <div class="page-sub">AI-driven menu updates based on plate scanner data. Select a day to view its proposed
+            changes.</div>
+
+          <!-- Task 1: Day Selector for Menu Revision -->
+          <div style="display:flex;gap:0.5rem;overflow-x:auto;padding-bottom:1rem;margin-bottom:1.5rem;"
+            id="menuDaySelector">
+            <button class="btn btn-ghost menu-day-btn active-menu-day"
+              style="border:1px solid var(--amber);color:var(--amber);" onclick="selectMenuDay('Mon',this)">Mon</button>
+            <button class="btn btn-ghost menu-day-btn" onclick="selectMenuDay('Tue',this)">Tue</button>
+            <button class="btn btn-ghost menu-day-btn" onclick="selectMenuDay('Wed',this)">Wed</button>
+            <button class="btn btn-ghost menu-day-btn" onclick="selectMenuDay('Thu',this)">Thu</button>
+            <button class="btn btn-ghost menu-day-btn" onclick="selectMenuDay('Fri',this)">Fri</button>
+            <button class="btn btn-ghost menu-day-btn" onclick="selectMenuDay('Sat',this)">Sat</button>
+            <button class="btn btn-ghost menu-day-btn" onclick="selectMenuDay('Sun',this)">Sun</button>
+          </div>
+
+          <div class="chart-card" style="margin-bottom:1.5rem;">
+            <h3>Proposed Menu Changes — <span id="menuDayLabel">Monday</span></h3>
+            <table class="menu-table">
+              <thead>
+                <tr>
+                  <th>Meal</th>
+                  <th>Current Item</th>
+                  <th>Replace With</th>
+                  <th>Waste Rate</th>
+                  <th>Reason</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="menuTableBody"></tbody>
+            </table>
+          </div>
+          <button class="btn btn-teal btn-lg" onclick="approveAllMenuForDay()"><i class="fa-solid fa-check-double"></i>
+            Approve All Changes for This Day</button>
+        </div>
+
+        <div id="atab-surplus" class="tab-content">
+          <div class="page-title">Surplus Routing</div>
+          <div class="page-sub">Partner organizations and alternative disposal channels for surplus food.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem;">
+
+            <!-- Card 1: NGO Partner Requests -->
+            <div class="chart-card">
+              <h3><i class="fa-solid fa-handshake" style="color:var(--teal);margin-right:0.5rem;"></i>Partner
+                Organizations Requesting Surplus</h3>
+              <div style="display:flex;flex-direction:column;gap:0.9rem;margin-top:1rem;">
+                <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem;">
+                  <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.3rem;">🏠 Hope Foundation</div>
+                  <div style="font-size:0.82rem;color:var(--muted);">Requires: <span
+                      style="color:var(--teal);font-weight:600;">Rice &amp; Chapati</span></div>
+                </div>
+                <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem;">
+                  <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.3rem;">🍲 City Food Bank</div>
+                  <div style="font-size:0.82rem;color:var(--muted);">Requires: <span
+                      style="color:var(--teal);font-weight:600;">Dal &amp; Vegetable Curry</span></div>
+                </div>
+                <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem;">
+                  <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.3rem;">🤝 Hunger Free Initiative</div>
+                  <div style="font-size:0.82rem;color:var(--muted);">Requires: <span
+                      style="color:var(--teal);font-weight:600;">Any cooked food (non-perishable)</span></div>
+                </div>
+                <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem;">
+                  <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.3rem;">🏫 Student Aid Society</div>
+                  <div style="font-size:0.82rem;color:var(--muted);">Requires: <span
+                      style="color:var(--teal);font-weight:600;">Bread, Roti &amp; Snacks</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Alternative Surplus Uses -->
+            <div class="chart-card">
+              <h3><i class="fa-solid fa-recycle" style="color:var(--amber);margin-right:0.5rem;"></i>Alternative Surplus
+                Uses</h3>
+              <div style="display:flex;flex-direction:column;gap:0.9rem;margin-top:1rem;">
+                <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem;">
+                  <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.3rem;">⚡ Campus Biogas Plant</div>
+                  <div style="font-size:0.82rem;color:var(--muted);">Converts food waste into usable biogas energy for
+                    campus kitchens.</div>
+                </div>
+                <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem;">
+                  <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.3rem;">🌱 Local Composting Unit</div>
+                  <div style="font-size:0.82rem;color:var(--muted);">Organic surplus sent to the campus agriculture
+                    department for composting.</div>
+                </div>
+                <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem;">
+                  <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.3rem;">🐄 Animal Feed Cooperative</div>
+                  <div style="font-size:0.82rem;color:var(--muted);">Grain-based surplus (rice, roti) donated to local
+                    dairy cooperative.</div>
+                </div>
+                <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem;">
+                  <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.3rem;">🧪 Food Research Lab</div>
+                  <div style="font-size:0.82rem;color:var(--muted);">Partnered lab uses surplus produce for food
+                    preservation experiments.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="atab-kitchen" class="tab-content">
+          <div class="page-title">Kitchen Prep &amp; Live Orders</div>
+          <div class="page-sub">Select a day to see all student orders and the aggregated prep quantities needed.</div>
+
+          <!-- Day Selector for Admin Kitchen -->
+          <div id="kitchenDaySelector"
+            style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 1rem; margin-bottom: 1.5rem;">
+            <button class="btn btn-ghost kitchen-day-btn active-day"
+              style="border: 1px solid var(--amber); color: var(--amber);"
+              onclick="selectAdminKitchenDay('Mon', this)">Mon</button>
+            <button class="btn btn-ghost kitchen-day-btn" onclick="selectAdminKitchenDay('Tue', this)">Tue</button>
+            <button class="btn btn-ghost kitchen-day-btn" onclick="selectAdminKitchenDay('Wed', this)">Wed</button>
+            <button class="btn btn-ghost kitchen-day-btn" onclick="selectAdminKitchenDay('Thu', this)">Thu</button>
+            <button class="btn btn-ghost kitchen-day-btn" onclick="selectAdminKitchenDay('Fri', this)">Fri</button>
+            <button class="btn btn-ghost kitchen-day-btn" onclick="selectAdminKitchenDay('Sat', this)">Sat</button>
+            <button class="btn btn-ghost kitchen-day-btn" onclick="selectAdminKitchenDay('Sun', this)">Sun</button>
+          </div>
+          <div class="chart-card" style="margin-bottom: 2rem;">
+            <h3>Aggregated Kitchen Prep List <span id="kitchenDayLabel" class="chip chip-amber"
+                style="font-size:0.72rem;">Mon</span></h3>
+            <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr); margin-top:1.5rem;"
+              id="kitchenAggregatedSummary">
+              <!-- Dynamically populated by JS (Aggregated Kitchen Prep List) -->
+            </div>
+          </div>
+
+          <div class="chart-card" style="margin-bottom: 2rem;">
+            <h3>Live Orders List</h3>
+            <table class="waste-table" style="margin-top: 1rem;">
+              <thead>
+                <tr>
+                  <th>Student Info</th>
+                  <th>Day</th>
+                  <th>Selections</th>
+                </tr>
+              </thead>
+              <tbody id="kitchenLiveOrders">
+                <!-- Dynamically populated by JS (Live Orders List) -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMsg">Action completed</span>
+  </div>
+
+  <!-- EXTERNAL SCRIPT -->
+  <script src="script.js"></script>
+
+  <script>
+    // ============ Live AI Detection Log ============
+
+    // State tracking
+    let _lastWasteKg = null;       // last confirmed waste reading
+    let _cameraOnline = null;       // null = unknown, true/false = known state
+    const CHANGE_THRESHOLD = 0.05;   // kg — min delta to count as a new plate event
+
+    // DOM refs (resolved lazily so the script works before the page is shown)
+    const getLog = () => document.getElementById('liveDetectionLog');
+    const getLiveDot = () => document.getElementById('logLiveChip');
+
+    // ── Camera status helpers ──────────────────────────────────────────────
+
+    function setCameraOnline() {
+      if (_cameraOnline === true) return; // already shown
+      _cameraOnline = true;
+      _lastWasteKg = null; // reset so first real reading always logs
+
+      const log = getLog();
+      if (!log) return;
+
+      // Remove any offline banner
+      const banner = log.querySelector('#cam-offline-banner');
+      if (banner) banner.remove();
+
+      // Clear placeholder text
+      if (log.children.length === 1 &&
+        log.children[0].style.textAlign === 'center') {
+        log.innerHTML = '';
+      }
+
+      // Inject a one-time "Session Started" marker
+      const marker = document.createElement('div');
+      marker.style.cssText =
+        'padding:0.4rem 0.75rem;background:rgba(45,212,191,0.12);' +
+        'border:1px solid rgba(45,212,191,0.3);border-radius:6px;' +
+        'text-align:center;font-size:0.8rem;';
+      const ts = new Date().toLocaleTimeString('en-IN',
+        { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+      marker.innerHTML =
+        `<span style="color:var(--teal);">▶ Camera online — YOLO session started at ${ts}</span>`;
+      log.prepend(marker);
+
+      // Light up the chip
+      const chip = getLiveDot();
+      if (chip) {
+        chip.style.background = 'rgba(45,212,191,0.15)';
+        chip.style.color = 'var(--teal)';
+        chip.style.borderColor = 'rgba(45,212,191,0.3)';
+        chip.textContent = '● Live';
+      }
+    }
+
+    function setCameraOffline() {
+      if (_cameraOnline === false) return; // already shown
+      _cameraOnline = false;
+      _lastWasteKg = null;
+
+      const log = getLog();
+      if (!log) return;
+
+      // Clear placeholder
+      if (log.children.length === 1 &&
+        log.children[0].style.textAlign === 'center') {
+        log.innerHTML = '';
+      }
+
+      // Show or refresh the offline banner (pinned at top)
+      let banner = log.querySelector('#cam-offline-banner');
+      if (!banner) {
+        banner = document.createElement('div');
+        banner.id = 'cam-offline-banner';
+        banner.style.cssText =
+          'padding:0.5rem 0.75rem;background:rgba(244,63,94,0.08);' +
+          'border:1px solid rgba(244,63,94,0.25);border-radius:6px;' +
+          'text-align:center;font-size:0.82rem;position:sticky;top:0;';
+        log.prepend(banner);
+      }
+      const ts = new Date().toLocaleTimeString('en-IN',
+        { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+      banner.innerHTML =
+        `<span style="color:var(--rose);">⏸ Camera offline — waiting for dumping station feed…</span>` +
+        `<span style="color:var(--muted);font-size:0.75rem;margin-left:0.5rem;">(last checked ${ts})</span>`;
+
+      // Dim the chip
+      const chip = getLiveDot();
+      if (chip) {
+        chip.style.background = 'rgba(244,63,94,0.12)';
+        chip.style.color = 'var(--rose)';
+        chip.style.borderColor = 'rgba(244,63,94,0.25)';
+        chip.textContent = '● Offline';
+      }
+    }
+    // ── Core polling function ──────────────────────────────────────────────
+
+    // ── Core polling function ──────────────────────────────────────────────
+
+    function fetchLiveWasteData() {
+      const log = getLog();
+      if (!log) return;
+
+      fetch('http://localhost:5000/api/waste_data')
+        .then(r => { if (!r.ok) throw new Error('not ok'); return r.json(); })
+        .then(data => {
+          setCameraOnline();
+
+          // BULLETPROOF FIX: Check if Python sent a nested 'current' object, or just flat data
+          const currentData = data.current ? data.current : data;
+
+          // Grab the waste number
+          const currentWaste = parseFloat(currentData.total_waste_kg) || 0;
+
+          // Only create a log entry when the waste value changes meaningfully (by 0.05kg)
+          if (_lastWasteKg === null || Math.abs(currentWaste - _lastWasteKg) >= CHANGE_THRESHOLD) {
+            _lastWasteKg = currentWaste;
+
+            // Get the names of the food
+            const items = getYoloItems(currentData);
+            const now = new Date().toLocaleTimeString('en-IN',
+              { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+
+            // Print to the log!
+            appendRow(log, now, items, currentWaste.toFixed(2));
+          }
+        })
+        .catch(() => {
+          setCameraOffline();
+        });
+    }
+
+    // ── Helpers ────────────────────────────────────────────────────────────
+
+    // Extract real YOLO item list from the API response
+    function getYoloItems(currentData) {
+      // 1. Look for the exact names (like Dahi, Salad) sent by Python
+      if (currentData.detected_items) {
+        // Handle it whether Python sent it as a list or a string
+        return Array.isArray(currentData.detected_items)
+          ? currentData.detected_items.join(', ')
+          : currentData.detected_items;
+      }
+
+      // 2. Fallback if the names list is empty
+      const parts = [];
+      if (parseFloat(currentData.rice_waste_pct) > 0) parts.push('Rice');
+      if (parseFloat(currentData.dal_waste_pct) > 0) parts.push('Dal');
+      return parts.length ? parts.join(', ') : 'Unidentified item';
+    }
+    function appendRow(container, time, items, waste) {
+      // Remove sticky offline banner so it doesn't sit above clean entries
+      const banner = container.querySelector('#cam-offline-banner');
+      if (banner) banner.remove();
+
+      const entry = document.createElement('div');
+      entry.style.cssText =
+        'padding:0.4rem 0.75rem;background:rgba(45,212,191,0.06);' +
+        'border:1px solid rgba(45,212,191,0.12);border-radius:6px;';
+      entry.innerHTML =
+        `<span style="color:var(--amber);">[${time}]</span> ` +
+        `<span style="color:var(--teal);">Detected:</span> ${items} ` +
+        `<span style="color:var(--rose);font-weight:700;">(${waste}kg waste)</span>`;
+      container.prepend(entry);
+      // Cap at 50 entries
+      while (container.children.length > 50) container.removeChild(container.lastChild);
+    }
+
+    // ── Download report ────────────────────────────────────────────────────
+    function downloadLogReport() {
+      const container = document.getElementById('liveDetectionLog');
+      const entries = Array.from(container.querySelectorAll('div:not(#cam-offline-banner)'))
+        .map(el => el.innerText.trim())
+        .filter(t => t.length > 0 &&
+          !t.startsWith('Waiting') &&
+          !t.startsWith('▶') &&
+          !t.startsWith('⏸'));
+
+      if (entries.length === 0) {
+        alert('No detection entries to download yet.');
+        return;
+      }
+
+      const stamp = new Date().toLocaleString('en-IN', { hour12: false });
+      const header = [
+        '╔══════════════════════════════════════════╗',
+        '   MessFlow — YOLO Live Detection Report',
+        `   Generated : ${stamp}`,
+        `   Total Detections : ${entries.length}`,
+        '╚══════════════════════════════════════════╝',
+        '',
+      ];
+
+      const blob = new Blob([header.join('\n') + entries.join('\n') + '\n'], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'MessFlow_Detection_Log.txt'; a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    setInterval(fetchLiveWasteData, 2000);
+  </script>
+
+</body>
+
+</html>
