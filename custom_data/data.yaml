@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 17
+names: ['Aalu Ki Sabji', 'Chana Dal', 'Chhaina', 'Chhole', 'Curry', 'Dahi', 'Dal', 'Fried Rice', 'Gulab Jamun', 'Mix Veg', 'Paneer', 'Plate', 'Puri', 'Rice', 'Roti', 'Salad', 'Zeera Aalu']
+
+roboflow:
+  workspace: tharuns-workspace-6yfok
+  project: messflow
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/tharuns-workspace-6yfok/messflow/dataset/1
